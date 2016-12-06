@@ -1,6 +1,6 @@
 # Cooperative Blockrain
 
-Play tetris-like game with your friends! The game implementation is based on [https://github.com/Aerolab/blockrain.js](blockrain.js).
+Play tetris-like game with your friends! The game implementation is based on [blockrain.js](https://github.com/Aerolab/blockrain.js).
 
 ## How to play
 
