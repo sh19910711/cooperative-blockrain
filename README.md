@@ -10,9 +10,9 @@ Play tetris-like game with your friends! The game implementation is based on [bl
 2. Open it in web browsers and send these requests:
 
 ```
-POST http://example.com/push?by=<your name>&button=right
-POST http://example.com/push?by=<your name>&button=left
-POST http://example.com/push?by=<your name>&button=rotate
+POST http://example.com/push?by=<your name>&command=right
+POST http://example.com/push?by=<your name>&command=left
+POST http://example.com/push?by=<your name>&command=rotate
 ```
 
 Have fun!
