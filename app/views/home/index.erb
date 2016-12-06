@@ -1,0 +1,39 @@
+<div id="main">
+    <h1>Cooperative Blockrain</h1>
+    <div id="tetris"></div>
+    <ul id="changes"></ul>
+</div>
+
+<script>
+getCommandEmoji = (cmd)=> {
+    return {
+        "right": "👉",
+        "left": "👈",
+        "rotate": "👊",
+    }[cmd]
+}
+
+tetris = $("#tetris").blockrain({
+  speed: 20, autoplay: false, theme: "candy"
+});
+
+var App = {};
+App.total = 0;
+App.WebSock = ActionCable.createConsumer();
+App.messages = App.WebSock.subscriptions.create('ButtonChannel', {
+  received: (data) => {
+    let keydown = $.Event('keydown');
+    let keyup   = $.Event('keyup');
+    switch (data["command"]) {
+    case "right":  keydown.keyCode = keyup.keyCode = 39; break;
+    case "left":   keydown.keyCode = keyup.keyCode = 37; break;
+    case "rotate": keydown.keyCode = keyup.keyCode = 38; break;
+    }
+
+    $(tetris).trigger(keydown);
+    $(tetris).trigger(keyup);
+
+    $("#changes").prepend("<li><span class=\"emoji\">" + getCommandEmoji(data["command"]) + "</span> by <span class=\"name\">" + data["by"] + "</span>");
+  },
+});
+</script>

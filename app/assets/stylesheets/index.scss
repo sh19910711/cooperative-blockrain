@@ -1,0 +1,58 @@
+@keyframes new_change {
+    from { background: #443000; }
+    to   { background: #0d0d10; }
+}
+
+body {
+    background: #0d0d10;
+    color: #fafafa;
+}
+
+#main {
+    font-family: "Source Code Pro", monospace;
+    margin: 50px auto 0;
+    padding: 0;
+    width: 600px;
+
+    h1 {
+        font-family: 'Bungee', cursive;
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 70px;
+    }
+
+    #tetris {
+        display: inline-block;
+        width:  300px;
+        height: 500px;
+    }
+
+    #changes {
+        display: inline-block;
+        vertical-align: top;
+        padding: 0;
+        margin-top: 100px;
+        margin-left: 30px;
+        width:  200px;
+        height: 230px;
+        overflow: scroll;
+        list-style-type: none;
+
+        li {
+            font-size: 18px;
+            animation: new_change 1s;
+            color: #ccc;
+
+            .name {
+               font-weight: bold;
+               font-size: 25px;
+               color: #fff;
+            }
+
+            .emoji {
+                font-size: 35px;
+                margin-left: 1em;
+            }
+        }
+    }
+}
